@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="sq">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SweetCake | Pastiçeri Online</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffe6f0,#fff8fb,#ffeef5);
+    color:#333;
+}
+
+/* NAV */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(12px);
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    color:white;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#ff4d88;
+}
+
+/* HERO */
+header{
+    height:100vh;
+    background:
+    linear-gradient(120deg,rgba(0,0,0,0.6),rgba(255,77,136,0.3)),
+    url('https://images.unsplash.com/photo-1542826438-bd32f43d626f?auto=format&fit=crop&w=1400&q=80');
+    background-size:cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero h1{
+    font-size:85px;
+    letter-spacing:2px;
+}
+
+.hero p{
+    font-size:22px;
+    margin-top:10px;
+}
+
+/* PRODUCTS */
+.products{
+    padding:100px 40px;
+    text-align:center;
+}
+
+.products h2{
+    font-size:45px;
+    color:#ff4d88;
+    margin-bottom:40px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:28px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.02);
+    box-shadow:0 15px 30px rgba(0,0,0,0.18);
+}
+
+.card img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+}
+
+.card h3{
+    margin-top:12px;
+    font-size:22px;
+}
+
+.price{
+    color:#ff4d88;
+    font-weight:bold;
+    font-size:20px;
+    margin:8px 0 15px;
+}
+
+/* CONTACT */
+.contact{
+    padding:90px 40px;
+    text-align:center;
+}
+
+.contact h2{
+    font-size:40px;
+    color:#ff4d88;
+    margin-bottom:20px;
+}
+
+input,textarea{
+    width:300px;
+    padding:12px;
+    margin:6px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    outline:none;
+}
+
+/* FOOTER */
+footer{
+    background:linear-gradient(90deg,#000,#222);
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+}
+button{
+    padding:12px 25px;
+    background:#ff4d88;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    margin-top:10px;
+}
+select{
+    margin-bottom:20px;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    width:80%;
+}
+
+button:hover{
+    background:black;
+}
+.cart{
+    padding:60px;
+    text-align:center;
+}
+
+.cart h2{
+    color:#ff4d88;
+    margin-bottom:20px;
+}
+
+#cart-items{
+    list-style:none;
+    font-size:20px;
+}
+.cart button{
+    margin-top:15px;
+}
+
+.remove-btn{
+    background:red;
+    color:white;
+    border:none;
+    padding:5px 10px;
+    border-radius:6px;
+    margin-left:10px;
+    cursor:pointer;
+}
+/* RESPONSIVE DESIGN */
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        padding:15px;
+        gap:10px;
+    }
+
+    nav ul{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .products{
+        padding:70px 20px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact{
+        padding:60px 20px;
+    }
+
+    input,
+    textarea{
+        width:100%;
+    }
+
+    .cart{
+        padding:40px 20px;
+    }
+
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<div class="logo">🍰 SweetCake</div>
+<ul>
+<li><a href="#products">Produktet</a></li>
+<li><a href="#contact">Kontakt</a></li>
+</ul>
+</nav>
+
+<header>
+<div class="hero">
+<h1>SweetCake</h1>
+<p>Pastiçeria online më e ëmbël 🍓</p>
+</div>
+</header>
+
+<section class="products" id="products">
+<h2 id="products-title">Produktet Tona</h2>
+
+<div class="grid">
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
+
+<h3>Tortë</h3>
+
+<p class="price">1800 Lekë</p>
+
+<select id="torte-shije">
+<option>Zgjidh Shijen</option>
+<option>Çokollatë</option>
+<option>Vanilje</option>
+<option>Luleshtrydhe</option>
+<option>Nutella</option>
+<option>Karamel</option>
+</select>
+<button onclick="addToCart('Tortë',1800 ,'torte-shije')">Shto në Shportë</button>
+
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad">
+<h3>Cheesecake</h3>
+<p class="price">1500 Lekë</p>
+<select id="cheesecake-shije">
+<option>Zgjidh Shijen</option>
+<option>Classic</option>
+<option>Oreo</option>
+<option>Luleshtrydhe</option>
+<option>Blueberry</option>
+<option>Kinder</option>
+</select>
+<button onclick="addToCart('Cheesecake',1500 ,'cheesecake-shije')">Shto në Shportë</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43">
+<h3>Macarons</h3>
+<p class="price">150 Lekë</p>
+<select id="macarons-shije">
+
+<option>Zgjidh Shijen</option>
+<option>Pistachio</option>
+<option>Vanilje</option>
+<option>Çokollatë</option>
+<option>Mjedër</option>
+<option>Kokos</option>
+</select>
+<button onclick="addToCart('Macarons',150 ,'macarons-shije')">Shto në Shportë</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519869325930-281384150729">
+<h3>Cupcakes</h3>
+<p class="price">200 Lekë</p>
+<select id="cupcakes-shije">
+
+<option>Zgjidh Shijen</option>
+<option>Vanilje</option>
+<option>Red Velvet</option>
+<option>Nutella</option>
+<option>Oreo</option>
+<option>Caramel</option>
+</select>
+<button onclick="addToCart('Cupcakes',200 ,'cupcakes-shije')">Shto në Shportë</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1527904324834-3bda86da6771">
+<h3>Donuts</h3>
+<p class="price">200 Lekë</p>
+<select id="donuts-shije">
+
+<option>Zgjidh Shijen</option>
+<option>Çokollatë</option>
+<option>Vanilje</option>
+<option>Strawberry</option>
+<option>White Chocolate</option>
+<option>Cookies</option>
+</select>
+<button onclick="addToCart('Donuts',200 ,'donuts-shije')">Shto në Shportë</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9">
+<h3>Tiramisu</h3>
+<p class="price">1300 Lekë</p>
+<select id="tiramisu-shije">
+
+<option>Zgjidh Shijen</option>
+<option>Classic</option>
+<option>Nutella</option>
+<option>Karamel</option>
+<option>Oreo</option>
+<option>Kafe</option>
+</select>
+<button onclick="addToCart('Tiramisu',1300 ,'tiramisu-shije')">Shto në Shportë</button>
+
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1562376552-0d160a2f238d">
+<h3>Waffle</h3>
+<p class="price">500 Lekë</p>
+<select id="waffle-shije">
+
+<option>Zgjidh Shijen</option>
+<option>Nutella</option>
+<option>Banane</option>
+<option>White Chocolate</option>
+<option>Fruta</option>
+<option>Kinder</option>
+</select>
+<button onclick="addToCart('Waffle',500 ,'waffle-shije')">Shto në Shportë</button>
+
+</div>
+
+</div>
+</section>
+<section class="cart">
+
+<h2>🛒 Shporta</h2>
+
+<ul id="cart-items"></ul>
+
+<h3 id="total">Totali: 0 Lekë</h3>
+
+<h3 id="count">Produkte: 0</h3>
+
+<button onclick="sendOrder()">Dërgo Porosinë 📩</button>
+
+</section>
+<section class="contact" id="contact">
+
+<h2>Na Kontaktoni</h2>
+
+<form action="https://formsubmit.co/kejsicipi10@gmail.com" method="POST">
+
+<input type="text" name="name" placeholder="Emri juaj" required><br>
+
+<input type="email" name="email" placeholder="Email" required><br>
+
+<textarea name="message" placeholder="Shkruani porosinë..." required></textarea><br>
+
+<button type="submit">Dërgo Porosinë</button>
+
+</form>
+
+</section>
+<footer>
+
+© 2026 SweetCake 🍰 | Designed with Love
+
+<div style="margin-top:15px;">
+
+<a href="https://www.hitwebcounter.com/" target="_blank" rel="noopener">
+
+<img src="https://www.hitwebcounter.com/counter/counter.php?page=21497780&style=0006&nbdigits=5&type=page"
+alt="Website Views"
+style="border:0;max-width:100%;height:auto;" />
+
+</a>
+
+<p style="margin-top:8px;font-size:15px;">
+👀 Vizitorë në faqe
+</p>
+
+</div>
+
+</footer>
+<script>
+
+function addToCart(product){
+
+    const cart = document.getElementById("cart-items");
+
+    const li = document.createElement("li");
+
+    li.textContent = product + " u shtua në shportë 🛒";
+
+    cart.appendChild(li);
+
+}
+
+</script>
+<script>
+
+let total = 0;
+let count = 0;
+let orders = [];
+
+function addToCart(product,price,selectId){
+
+    const shija =
+    document.getElementById(selectId).value;
+
+    const cart =
+    document.getElementById("cart-items");
+
+    const li =
+    document.createElement("li");
+
+    li.innerHTML = `
+    ${product} - ${shija} - ${price} Lekë
+    <button class="remove-btn">X</button>
+    `;
+
+    cart.appendChild(li);
+
+    total += price;
+    count++;
+
+    orders.push(product + " (" + shija + ")");
+
+    document.getElementById("total").innerText =
+    "Totali: " + total + " Lekë";
+
+    document.getElementById("count").innerText =
+    "Produkte: " + count;
+
+    li.querySelector(".remove-btn").onclick =
+    function(){
+
+        cart.removeChild(li);
+
+        total -= price;
+        count--;
+
+        document.getElementById("total").innerText =
+        "Totali: " + total + " Lekë";
+
+        document.getElementById("count").innerText =
+        "Produkte: " + count;
+
+    };
+
+}
+
+
+function sendOrder(){
+
+    let message =
+    "Përshëndetje! Dua të porosis: " +
+    orders.join(", ");
+
+    window.location.href =
+    "mailto:kejsicipi10@gmail.com?subject=Porosi SweetCake&body=" + message;
+
+}
+
+</script>
+</body>
+</html>
